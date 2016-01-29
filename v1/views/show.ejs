@@ -1,0 +1,261 @@
+<% include partials/header %>
+
+<div class='ui page container'>
+	<div class='ui segment raised'>
+		<div class="ui stackable grid container">
+			<div class='row'>
+			<div class='five wide column'>
+				<div class='ui segment stacked'>
+				<img class='ui image centered rounded' src='<%=character.image %>'>
+				<div class="ui top right attached blue large label">Level: <%= character.level %></div>
+				<!--<h2 class='ui header'>Vitals</h2>-->
+			    <table class='ui celled  two column table unstackable'>
+			    <thead>
+			      <tr>
+			        <th>Name</th>
+			        <th>Class</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr>
+			        <td><%= character.name %></td>
+			        <td><%= character.clas %></td>
+			   	  </tr>
+			    </tbody>
+				</table>
+				<table class='ui celled two column table unstackable selectable'>
+					<thead>
+						<tr>
+							<th>Race</th>
+							<th>Home</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><%= character.race %></td>
+							<td><%= character.home %></td>
+						</tr>
+					</tbody>
+				</table>
+				<table class='ui celled table unstackable four column second-row selectable'>
+		          <thead>
+				      <tr class='center aligned'>
+				        <th>Age</th>
+				        <th>Sex</th>
+				        <th>Height</th>
+				        <th>Weight</th>
+				      </tr>
+				    </thead>
+		            <tbody>
+				      <tr class='center aligned'>
+				        <td><%=character.age%></td>
+				        <td><%=character.sex%></td>
+				        <td><%=character.height%></td>
+				        <td><%=character.weight%> lbs</td>
+				      </tr>
+				    </tbody>
+		        </table>
+		    </div>
+				<div class='ui segment '>
+					<h2 class='ui header centered align'>Weapon</h2>
+				<table class='ui celled table unstackable selectable '>
+					<thead>
+						<tr>
+							<th>Weapon In Hand</th>
+							<th>Damage</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Mace +2</td>
+							<td>D6+1</td>
+						</tr>
+					</tbody>
+				</table>
+								<table class='ui celled table unstackable selectable '>
+					<thead>
+						<tr>
+							<th>Hit Bonus</th>
+							<th>Damage Bonus</th>
+							<th>Total Damage</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>0</td>
+							<td>+2</td>
+							<td>D6+3</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			</div>
+			
+			<div class='eleven wide column'>
+				
+			
+				
+					<h2 class='ui header center aligned'>Backstory</h2>
+				<div class='ui segment text'>	
+					<%- character.background %>
+				</div>
+	
+			    <table class="ui celled table unstackable selectable ">
+				  <thead>
+				    <tr>
+				      <th>Ability</th>
+				      <th>Pts.</th>
+				      <th>Modifier</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr class="">
+				      <td>Strength</td>
+				      <td><%=character.STR%></td>
+				      <td>0</td>
+				    </tr>
+				    <tr>
+				      <td>Intellect</td>
+				      <td><%=character.INT%></td>
+				      <td>0</td>
+				    </tr>
+				    <tr>
+				      <td>Wisdom</td>
+				      <td><%=character.WIS%></td>
+				      <td>0</td>
+				    </tr>
+				    <tr>
+				      <td>Dexterity</td>
+				      <td><%=character.DEX%></td>
+				      <td>0</td>
+				    </tr>
+				    <tr>
+				      <td>Constitution</td>
+				      <td><%=character.CON%></td>
+				      <td>0</td>
+				    </tr>
+				    <tr>
+				      <td>Charisma</td>
+				      <td><%=character.CHR%></td>
+				      <td>0</td>
+				    </tr>
+		  		</tbody>
+			  </table>
+			  	<!--<h2 class='ui header text container'>Talents</h2>-->
+			    <table class="ui celled table unstackable  selectable ">
+				  <thead>
+				    <tr>
+				      <th>Talents</th>
+				      <th>Modifier</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  	<% character.talent.forEach(function(talent){ %>
+				  		<tr>
+				  			<td><%= talent %></td>
+				  			<td></td>
+				  		</tr>
+				  <%	}) %>
+				   <!-- <tr class="">
+				      <td>Meditation</td>
+				      <td class=''>+4</td>
+				    </tr>
+				    <tr>
+				      <td></td>
+				      <td class=''>+3</td>
+				    </tr>
+				    <tr>
+				      <td>Musician</td>
+				      <td class=''>+6</td>
+				    </tr>
+				    <tr>
+				      <td>Sneaking</td>
+				      <td class=''>+5</td>
+				    </tr>
+				    <tr>
+				      <td>Sneaking</td>
+				      <td class=''>+6</td>
+				    </tr>
+				    <tr>
+				      <td>Cooking</td>
+				      <td class=''>+5</td>
+				    </tr>
+				    <tr>
+				      <td>Carpentry</td>
+				      <td class=''>+6</td>-->
+				  	</tbody>
+				  </table>
+				<!--<h2 class='ui header text container'>
+					Movement
+				</h2>-->
+				<table class='ui celled table unstackable selectable '>
+					<thead>
+						<tr>
+							<th>Movement</th>
+							<th>Base</th>
+							<th>Modifer</th>
+							<th>Per Round</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Normal</td>
+							<td><%=character.baseMove%> ft</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+							<h2 class='ui header centered align'>Inventory</h2>
+			<table class='ui celled table unstackable selectable '>
+					<thead>
+						<tr>
+							<th>Item</th>
+							<th>Stats</th>
+							<th>Lorem Ipsum</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Hammer</td>
+							<td>14 DOP</td>
+							<td>Ffafi</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			</div>
+			<div class='row'>
+				<div class='eight wide column'>
+					<a class='ui green button basic fluid' href='/characters/<%=character.id%>/edit'><i class='icon edit'></i> Edit</a>
+				</div>
+				<div class='eight wide column'>
+					<div class="ui red button basic fluid delete"><i class='icon trash'></i>Delete</div>	
+				</div>	
+			</div>
+		</div>
+		</div>
+	</div>
+
+	<div class="ui modal">
+	  <div class="header">Delete Character</div>
+	  <div class="content">
+	    <p>Are you sure want to delete this character?  There is no turning back.</p>
+	  </div>
+	  <div class="actions">
+  		<form class='ui form' action='/characters/<%=character.id%>?_method=DELETE' method='POST'>
+			<button class='ui approve green button left floated'>Yes, delete it</button>
+		</form>
+	    <div class="ui cancel red button"><i class='icon cancel'></i> Cancel</div>
+	  </div>
+	</div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.menu .item').removeClass('active');
+  	$('#characters-link').addClass('active');
+  });
+</script>
+
+<%include partials/footer %>

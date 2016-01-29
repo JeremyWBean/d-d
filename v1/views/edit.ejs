@@ -1,0 +1,256 @@
+<% include partials/header %>
+
+<div class='ui container page'>
+		<div class='ui segment stacked'>
+			<h1 class='ui form header'>
+				Update Character
+			</h1>
+			<form class="ui form" action='/characters/<%=character.id%>?_method=PUT' method='POST'>
+				<h4 class='ui dividing header'>
+					Vitals
+				</h4>
+			  <div class="fields">
+			    <div class="six wide field">
+			      <label>Name</label>
+			      <input placeholder="" name='character[name]' type="text" id='name' value='<%=character.name%>'>
+			    </div>
+			    <div class="four wide field">
+			      <label>Race</label>
+			        <div class="field">
+					    <select id="race" name="character[race]" value="Human" value='<%=character.race%>'>
+					      <option selected="" val="0"> -Select Race- </option>
+					      <option value="Mountain Dwarf">Mountain Dwarf</option>
+					      <option value="Hill Dwarf">Hill Dwarf</option>
+					      <option value="High Elf">High Elf</option>
+					      <option value="Wood Elf">Wood Elf</option>
+					      <option value="Drow Elf">Drow Elf</option>
+					      <option value="High Elf">High Elf</option>
+					      <option value="Halfling (Lightfoot)">Halfling (Lightfoot)</option>
+					      <option value="Halfling (Stout)">Halfling (Stout)</option>
+					      <option value="Human">Human</option>
+					      <option value="Forest Gnome">Forest Gnome</option>
+					      <option value="Rock Gnome">Rock Gnome</option>
+					      <option value="Half-Elf">Half-Elf</option>
+					      <option value="Half-Orc">Half-Orc</option>
+					      <option value="Tiefling">Tiefling</option>
+					  </select>
+					  </div>
+			    </div>
+			    <div class="six wide field">
+			      <label>Class</label>
+			        <div class="field">
+					    <select id='class' name='character[clas]' value='<%=character.clas%>'>
+					      <option selected> -Select Class </option>
+					    <option value="Barbarian">Barbarian</option>
+					    <option value="Bard">Bard</option>
+					    <option value="Druid">Druid</option>
+					    <option value="Monk">Monk</option>
+					    <option value="Paladin">Paladin</option>
+					    <option value="Ranger">Ranger</option>
+					    <option value="Sorcerer">Sorcerer</option>
+					    <option value="Warlock">Warlock</option>
+					    </select>
+					  </div>
+			    </div>
+			  </div>
+			  			<script>
+			  				document.getElementById('race').value = '<%=character.race%>';
+			  				document.getElementById('class').value = '<%=character.clas%>';			  			
+			  			</script>
+			  <div class='fields'>
+			      <div class='four wide field'>
+			          <label>Home</label>
+			          <input type='text' name='character[home]' value='<%=character.home%>'>
+			      </div>
+			      <div class='six wide field'>
+				    <label>Image URL</label>
+			        <input type='text' name='character[image]' value='<%=character.image%>'>
+			      </div>
+			      <div class='two wide field'>
+			      	<label>Level</label>
+			      	<input type='text' name='character[level]' value='<%=character.level%>'>
+			      </div>
+                  <div class='two wide field'>
+                      <label>Hit Points</label>
+                      <input type='text' name='character[HP]' value='<%=character.HP%>'>
+                  </div>
+                  <div class='two wide field'>
+                      <label>Armor Class</label>
+                      <input type='text' name='character[AC]' value='<%=character.AC%>'>
+                  </div>
+			  </div>
+			  <div class="fields">
+			    <div class="two wide field">
+		    	<label>Age</label>
+			      <input placeholder="" type="text" name='character[age]' value='<%=character.age%>'>
+			    </div>
+			    <div class="two wide field">
+			    <label>Sex</label>
+			      <input placeholder="" type="text" name='character[sex]' value='<%=character.sex%>'>
+			    </div>
+			    <div class="two wide field">
+			    <label>Height</label>
+			      <input placeholder="" type="text" name='character[height]' value='<%=character.height%>'>
+			    </div>
+			    <div class="two wide field">
+			    <label>Weight</label>
+			      <input placeholder="" type="text" name='character[weight]' value='<%=character.weight%>'>
+			    </div>
+			    <div class="two wide field">
+			    <label>Hair</label>
+			      <input placeholder="" type="text" name='character[hair]' value='<%=character.hair%>'>
+			    </div>
+			    <div class="two wide field">
+			    <label>Eyes</label>
+			      <input placeholder="" type="text" name='character[eyes]' value='<%=character.eyes%>'>
+			    </div>
+			    <div class="two wide field">
+			    <label>Handedness</label>
+			      <input placeholder="" type="text" name='character[handedness]' value='<%=character.handedness%>'>
+			    </div>
+			  </div>
+
+
+			  	<div class='ui four column grid doubling'>
+			  		<div class='column'>
+			  		<div class='row'>
+					  <h4 class='ui dividing header'>
+					  	Skills
+					  <div class="ui left pointing green basic label" id='skillMessage'>
+     				 	Add point to one modifier
+   			       	 </div>
+					  </h4>
+					  <div class='fields'>
+					  	<div class='eight wide field' >
+					  		<label>STR</label>
+					  		<input class='stat' type='text' name='character[STR]' value='<%=character.STR%>'>
+					  	</div>
+					  	<div class='eight wide field'>
+					  		<label>Modifier</label>
+					  		<input type='text' id='strM'>
+					  	</div>
+					  </div>
+					</div>
+					<div class='row'>
+					<div class='fields'>
+					  	<div class='eight wide field'>
+					  		<label>INT</label>
+					  		<input class='stat' type='text' name='character[INT]' value='<%=character.INT%>'>
+					  	</div>
+					  	<div class='eight wide field'>
+					  		<label>Modifier</label>
+					  		<input type='text' id='intM'>
+					  	</div>
+					  </div>
+					</div>
+					<div class='row'>
+					<div class='fields'>
+					  	<div class='eight wide field'>
+					  		<label>WIS</label>
+					  		<input class='stat' type='text' name='character[WIS]' value='<%=character.WIS%>'>
+					  	</div>
+					  	<div class='eight wide field'>
+					  		<label>Modifier</label>
+					  		<input type='text' id='wisM'>
+					  	</div>
+					  </div>
+					</div>
+					<div class='row'>
+					<div class='fields'>
+					  	<div class='eight wide field'>
+					  		<label>DEX</label>
+					  		<input class='stat' type='text' name='character[DEX]' value='<%=character.DEX%>'>
+					  	</div>
+					  	<div class='eight wide field'>
+					  		<label>Modifier</label>
+					  		<input type='text' id='dexM'>
+					  	</div>
+					  </div>
+					</div>
+					<div class='row'>
+					<div class='fields'>
+					  	<div class='eight wide field'>
+					  		<label>CON</label>
+					  		<input class='stat' type='text' name='character[CON]' value='<%=character.CON%>'>
+					  	</div>
+					  	<div class='eight wide field'>
+					  		<label>Modifier</label>
+					  		<input type='text' id='conM'>
+					  	</div>
+					  </div>
+					</div>
+					<div class='row'>
+					<div class='fields'>
+					  	<div class='eight wide field'>
+					  		<label>CHR</label>
+					  		<input class='stat' type='text' name='character[CHR]' value='<%=character.CHR%>'>
+					  	</div>
+					  	<div class='eight wide field'>
+					  		<label>Modifier</label>
+					  		<input type='text' id='chrM'>
+					  	</div>
+					  </div>
+					</div>
+					<div class='ui divider'></div>
+					<!--<div class='ui primary button fluid' id='roll-character' style='margin-top:5px;'>
+						<i class='cube icon'></i> Roll Character
+					</div>-->
+				</div><!-- END SKILLS COLUMN -->
+				<div class='eight wide column'>
+					<div class='field'>
+						<label>Character Backstory</label>
+						<textarea name='character[background]'><%=character.background%></textarea>
+					</div>
+					<h4 class='ui dividing header'>Talents
+					</h4>
+					<div class='row'>
+					<div class='fields'>
+						<div class='twelve wide field'>
+							<label>Talent</label>
+							<input type='text' placeholder='Talent' name='character[talent][0]'>
+						</div>
+						<div class='three wide field'>
+							<label>Modifier</label>
+							<input type='text' placeholder='Modifier'>
+						</div>
+						</div>
+					</div>
+					<span id='new-talents-container'>
+					</span>
+					<div class='ui divider'></div>
+
+						<div class='ui primary button' id='add-talent'><i class='plus icon'></i>ADD</div>
+				</div> <!-- END TALENTS COLUMN -->
+				<div class='four wide column'>
+					<h4 class='ui dividing header' id='movement'>
+						Movement
+					</h4>
+					<div class='fields'>
+						<div class='column'>
+							<div class='field'>
+								<label>Base (ft)</label>
+								<input type='text' placeholder='Base' id='baseMovement' name='character[baseMove]' value='<%=character.baseMove%>'>
+							</div>
+							<div class='field'>
+								<label>Modifier (ft)</label>
+								<input type='text' placeholder='Modifier'>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			  </div> <!-- SKILLS/TALENTS/MOVEMENTS COLUMNS -->
+
+			  	<button class='ui button green large fluid' id='create'>Update Character</button>
+		  	</form>
+		</div> <!-- SEGMENT CONTAINER -->
+	</div> <!--PAGE CONTAINER -->
+
+<script>
+  $(document).ready(function(){
+    $('.menu .item').removeClass('active');
+  	$('#characters-link').addClass('active');
+  });
+</script>
+
+<% include partials/footer %>

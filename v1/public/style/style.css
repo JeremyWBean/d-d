@@ -1,0 +1,19 @@
+.ui.menu.pointing.secondary {
+    background: white;
+}
+
+.page {
+    margin-top: 120px;
+}
+
+#add-talent {
+    margin: 10px;
+}
+
+#roll-character {
+    margin: 10px;
+}
+
+body {
+    background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/redox_01.png");
+}

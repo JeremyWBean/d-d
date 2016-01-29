@@ -1,0 +1,58 @@
+<% include partials/header %>
+
+<div class='ui container' style='margin-top: 70px;'>
+  <div class='ui fluid container page raised segment'>
+  <div class="ui four doubling stackable cards">
+      
+    <% characters.forEach(function(character){ %>
+        
+  <div class="ui link card">
+    <a class='image' href='/characters/<%=character._id%>'>
+      <img src="<%= character.image %>" style=''>
+      <div class="ui blue top right attached label">Level: <%= character.level %></div>
+    </a>
+    <div class="content">
+      <div class="header"><%=character.name%></div>
+      <div class="meta">
+        <a><%=character.race%> - <%=character.clas%></a>
+      </div>
+      <div class="description">
+        <% if(character.background){ %>
+          <%- character.background.substring(0,100) + '...' %>
+        <% } else { %>
+          <p>Add information about your character...</p>
+        <% } %>
+      </div>
+    </div>
+    <div class="extra content">
+      <% if( character.sex.toLowerCase() === 'male'){ %>
+        <i class='icon man'></i>
+      <% } else { %>
+        <i class='icon woman'></i>
+      <% } %> 
+      <span class='right floated'>
+        HP: <%= character.HP %>  /  AC: <%=character.AC%> / <strong>Lvl: <%=character.level%></strong>
+      </span>
+    </div>
+  </div>
+  <% }); %>
+  <div class="ui card">
+  <a class="image" href="/characters/new">
+    <img src="http://buira.org/assets/images/shared/default-profile.png">
+  </a>
+  <div class="content">
+    <a class="header" href="/characters/new"><i class='icon add'></i> Add New Character</a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.menu .item').removeClass('active');
+  	$('#characters-link').addClass('active');
+  });
+</script>
+
+<% include partials/footer %>
