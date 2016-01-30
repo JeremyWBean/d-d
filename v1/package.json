@@ -4,8 +4,8 @@
   "description": "D&D app for mananging characters, runs, and other tools.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "start": "node app.js"
+    },
   "author": "B3AN",
   "license": "ISC",
   "dependencies": {
